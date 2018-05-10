@@ -30,7 +30,6 @@ POST https://www.bihao.pro/v1/ticker
 	{
 	    "data": 
 		{
-	    	"date"  : 1525854774,
 	        "ticker": 
 			[
 	            {
