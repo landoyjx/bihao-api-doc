@@ -10,6 +10,28 @@
 	
 	5、请使用 https 请求。
 
+	6、所有的 API 都需要认证 Api的申请可以到用户中心 -> 交易设置 -> 申请API，申请得到私钥和公钥，私钥Jubi将不做储存，一旦丢失将无法找回
+	
+	7、签名机制：$param = array(
+
+				amount 	=> 1,
+
+				price  	=> 10000,
+
+				type   	=> 'buy',
+
+				api_key => 7dab89b3b0d46a13772d980ed4b63096
+
+				signature => e28f207fd85cebdd0a12259e8776d2b4
+
+			);
+
+	    		api_key 是申请到的公钥
+				
+				signature是签名，是将amount price type key等参数连接起来排序，通过双层md5(私钥)为key加密得到的值.
+
+注意:请勿向任何人泄露这两个参数，这像您的密码一样重要
+
 
 ## 二、接口说明 ##
 
@@ -45,13 +67,13 @@ POST https://www.bihao.pro/v1/ticker
 
 **返回值说明:**
 
-1.date: 返回数据时服务器时间
-2.buy: 买一价
-3,high: 最高价
-4.last: 最新成交价
-5.low: 最低价
-6.sell: 卖一价
-7.vol: 成交量(最近的24小时)
+1. date: 返回数据时服务器时间
+2. buy: 买一价
+3, high: 最高价
+4. last: 最新成交价
+5. low: 最低价
+6. sell: 卖一价
+7. vol: 成交量(最近的24小时)
 
 ### 2.2 市场深度 ###
 
@@ -64,21 +86,18 @@ POST https://www.bihao.pro/v1/depth
 |api_key| String|是 |用户申请的apiKey|
 |symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt cnt_cnt eth_cnt bhb_cnt|
 |sign| String|是 |请求参数的签名|
+
 **返回结果示例：**
 
 	{
 	    "data": {
-	        "asks": [
-	            [
-	                "2.0000",
-	                0
-	            ]
+	        "asks": 
+			[
+	            ["2.0000",0]
 	        ],
-	        "bids": [
-				[
-	                "2.0000",
-	                0
-	            ]
+	        "bids": 
+			[
+				["2.0000",0]
 			]
 	    },
 	    "code": "1001",
@@ -87,8 +106,8 @@ POST https://www.bihao.pro/v1/depth
 
 **返回值说明:**
 
-1.asks - 委买单[价格, 委单量]，价格从高到低排序
-2.bids - 委卖单[价格, 委单量]，价格从高到低排序
+1. asks - 委买单[价格, 委单量]，价格从高到低排序
+2. bids - 委卖单[价格, 委单量]，价格从高到低排序
 
 ### 2.3 最近的市场交易  ###
 
@@ -149,6 +168,7 @@ POST  https://www.bihao.pro/v1/kline
 |size| String|否 |用户一次请求条数|
 |since| String|否 |用户请求某个时间之后的数据|
 |sign| String|是 |请求参数的签名|
+
 **返回结果示例：**
 
 	{
@@ -194,6 +214,7 @@ POST  https://www.bihao.pro/v1/userinfo
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
+
 **返回结果示例：**
 
 	{
@@ -458,6 +479,7 @@ POST  https://www.bihao.pro/v1/order_info
 
 | 错误代码 | 详细描述|
 |-------------|-------------|
+|10000| 请求成功|
 |10001| 签名失败|
 |10002| api_key不能为空|
 |10003| 必选参数不能为空|
@@ -477,8 +499,7 @@ POST  https://www.bihao.pro/v1/order_info
 |10017| 超过最大买入量|
 |10018| 低于最小买入量|
 |10019| 订单不存在|
-|1001| 请求成功|
-|1002| 撤销成功|
-|1003| 撤销失败|
+|10020| 撤销成功|
+|10021| 撤销失败|
 
 
