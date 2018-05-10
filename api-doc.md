@@ -37,7 +37,7 @@
 6.sell: 卖一价
 7.vol: 成交量(最近的24小时)
 
-###https://www.bihao.pro/v1/depth 市场深度 ###
+### https://www.bihao.pro/v1/depth 市场深度 ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -292,7 +292,7 @@
 16. page_length: 每页显示条数
 
 
-###https://www.bihao.pro/v1/trade_history 获取用户的订单信息 (未成交)###
+### https://www.bihao.pro/v1/trade_history 获取用户的订单信息 (未成交)###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
