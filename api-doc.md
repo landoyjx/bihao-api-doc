@@ -30,7 +30,8 @@ POST https://www.bihao.pro/v1/ticker
 	{
 	    "data": {
 	    	"date"  : 1525854774,
-	        "ticker": [
+	        "ticker": 
+			[
 	            {
 	                "buy":"33.15",
 					"high":"34.15",
