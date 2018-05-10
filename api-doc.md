@@ -28,7 +28,8 @@ POST https://www.bihao.pro/v1/ticker
 **返回结果示例：**
 
 	{
-	    "data": {
+	    "data": 
+		{
 	    	"date"  : 1525854774,
 	        "ticker": 
 			[
