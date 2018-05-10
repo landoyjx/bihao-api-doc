@@ -217,7 +217,7 @@ POST  https://www.bihao.pro/v1/userinfo
 3. nameauth:0 未实名 1 认证成功 2 认证失败
 
 
-### 2.6 下单  ###
+### 2.6 下单 ###
 
 POST https://www.bihao.pro/v1/trade
 
@@ -325,7 +325,7 @@ POST https://www.bihao.pro/api/v1/order_history
 16. page_length: 每页显示条数
 
 
-### 2.8 获取用户的订单信息 (未成交)###
+### 2.8 获取用户的订单信息 (未成交) ###
 
 POST https://www.bihao.pro/v1/trade_history
 
@@ -401,7 +401,7 @@ POST  URL https://www.bihao.pro/V1/cancel_order
 2. msg：返回信息
 
 
-### 2.10 获取用户的订单信息  (未成交)###
+### 2.10 获取用户的订单信息  (未成交) ###
 
 POST  https://www.bihao.pro/v1/order_info
 
