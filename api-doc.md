@@ -26,9 +26,9 @@
 
 			);
 
-	    		api_key 是申请到的公钥
+	    	api_key 是申请到的公钥
 				
-				signature是签名，是将amount price type key等参数连接起来排序，通过双层md5(私钥)为key加密得到的值.
+			signature是签名，是将amount price type key等参数连接起来排序，通过双层md5(私钥)为key加密得到的值.
 
 注意:请勿向任何人泄露这两个参数，这像您的密码一样重要
 
