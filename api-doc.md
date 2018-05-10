@@ -71,7 +71,7 @@
 1.asks - 委买单[价格, 委单量]，价格从高到低排序
 2.bids - 委卖单[价格, 委单量]，价格从高到低排序
 
-### https://www.bihao.pro/v1/orders 最近的市场交易 ###
+### https://www.bihao.pro/v1/orders 最近的市场交易  ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -113,7 +113,7 @@
 5. type:交易类型
 
 
-###https://www.bihao.pro/v1/kline K线 ###
+###  https://www.bihao.pro/v1/kline  K线 ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -159,7 +159,7 @@
 6. 1.5000：收
 
 
-###https://www.bihao.pro/v1/userinfo 获取用户信息 ###
+###  https://www.bihao.pro/v1/userinfo 获取用户信息  ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -189,7 +189,7 @@
 3. nameauth:0 未实名 1 等待确认 2 已经认证成功
 
 
-###https://www.bihao.pro/v1/trade 下单 ###
+###  https://www.bihao.pro/v1/trade 下单  ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -296,7 +296,7 @@
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
-|-------------|-------------|-----|
+|-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
 
@@ -340,7 +340,7 @@
 13. digit_num：交易币种小数位
 14. currency_trade_mark：分区币种英文标识
 
-###URL https://www.bihao.pro/V1/cancel_order 撤销订单 ###
+###  URL https://www.bihao.pro/V1/cancel_order 撤销订单 ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -361,7 +361,7 @@
 2. msg：返回信息
 
 
-###https://www.bihao.pro/v1/order_info 获取用户的订单信息  (未成交)###
+###  https://www.bihao.pro/v1/order_info 获取用户的订单信息  (未成交)###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
