@@ -1,3 +1,19 @@
+### 请求说明 ###
+
+1、POST请求头信息中必须声明 Content-Type:application/json;GET请求头信息中必须声明 Content-
+
+Type:application/x-www-form-urlencoded。(汉语用户建议设置 Accept-Language:zh-cn)
+
+2、所有请求参数请按照 API 说明进行参数封装。
+
+3、将封装好参数的 API 请求通过 POST 或 GET 的方式提交到服务器。
+
+4、好币网处理请求，并返回相应的 JSON 格式结果。
+
+5、请使用 https 请求。
+
+
+
 ### POST https://www.bihao.pro/v1/ticker 好币行情  ###
 
 **请求参数：**
