@@ -38,7 +38,7 @@ POST https://www.bihao.pro/v1/ticker
 					"last":"33.15",
 					"low":"32.05",
 					"sell":"33.16",
-					"vol":"10532696.39199642"
+					"vol":"10.39"
 	            }  
 	        ]
 	    },
