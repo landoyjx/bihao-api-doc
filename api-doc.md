@@ -1,4 +1,4 @@
-###  https://www.bihao.pro/v1/ticker 好币行情  ###
+### POST https://www.bihao.pro/v1/ticker 好币行情  ###
 
 **请求参数：**
 
@@ -37,7 +37,7 @@
 6.sell: 卖一价
 7.vol: 成交量(最近的24小时)
 
-### https://www.bihao.pro/v1/depth 市场深度 ###
+### POST https://www.bihao.pro/v1/depth 市场深度 ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -71,7 +71,7 @@
 1.asks - 委买单[价格, 委单量]，价格从高到低排序
 2.bids - 委卖单[价格, 委单量]，价格从高到低排序
 
-### https://www.bihao.pro/v1/orders 最近的市场交易  ###
+### POST https://www.bihao.pro/v1/orders 最近的市场交易  ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -113,7 +113,7 @@
 5. type:交易类型
 
 
-###  https://www.bihao.pro/v1/kline  K线 ###
+### POST  https://www.bihao.pro/v1/kline  K线 ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -159,7 +159,7 @@
 6. 1.5000：收
 
 
-###  https://www.bihao.pro/v1/userinfo 获取用户信息  ###
+### POST  https://www.bihao.pro/v1/userinfo 获取用户信息  ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -186,10 +186,10 @@
 
 1. free:用户可用余额
 2. freezed：用户冻结余额
-3. nameauth:0 未实名 1 等待确认 2 已经认证成功
+3. nameauth:0 未实名 1 认证成功 2 认证失败
 
 
-###  https://www.bihao.pro/v1/trade 下单  ###
+### POST https://www.bihao.pro/v1/trade 下单  ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -213,7 +213,7 @@
 1. code:返回码
 2. msg：返回信息
 
-### https://www.bihao.pro/api/v1/order_history  获取历史订单信息，只返回最近两天的信息   ###
+### POST https://www.bihao.pro/api/v1/order_history  获取历史订单信息，只返回最近两天的信息   ###
 
 **请求参数：**
 
@@ -292,7 +292,7 @@
 16. page_length: 每页显示条数
 
 
-### https://www.bihao.pro/v1/trade_history 获取用户的订单信息 (未成交)###
+### POST https://www.bihao.pro/v1/trade_history 获取用户的订单信息 (未成交)###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -340,7 +340,7 @@
 13. digit_num：交易币种小数位
 14. currency_trade_mark：分区币种英文标识
 
-###  URL https://www.bihao.pro/V1/cancel_order 撤销订单 ###
+### POST  URL https://www.bihao.pro/V1/cancel_order 撤销订单 ###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -361,7 +361,7 @@
 2. msg：返回信息
 
 
-###  https://www.bihao.pro/v1/order_info 获取用户的订单信息  (未成交)###
+### POST  https://www.bihao.pro/v1/order_info 获取用户的订单信息  (未成交)###
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -408,4 +408,34 @@
 12. currency_trade_mark: 交易分区币种英文标识,
 13. trade_pair":交易市场名
 14. trade_num 成交数量
+
+
+
+### 错误代码对照表###
+
+| 错误代码 | 详细描述|
+|-------------|-------------|
+|10001| 签名失败|
+|10002| api_key不能为空|
+|10003| 必选参数不能为空|
+|10004| 非法参数|
+|10005| 币种不存在|
+|10006| order_id不能为空|
+|10007| 交易未开始|
+|10008| 交易未开启|
+|10009| 下单金额或数量不正确|
+|100010| 下单数量超过最大数量|
+|100011| 下单数量低于最小下单数量|
+|100012| 价格小于跌停价格|
+|100013| 价格大于涨停价格|
+|100014| 账户余额不足|
+|100015| 下单失败！请重新再试或联系管理员|
+|100016| 价格和数量不正确|
+|100017| 超过最大买入量|
+|100018| 低于最小买入量|
+|100019| 订单不存在|
+|1001| 请求成功|
+|1002| 撤销成功|
+|1003| 撤销失败|
+
 
