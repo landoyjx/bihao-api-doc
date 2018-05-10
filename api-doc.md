@@ -1,18 +1,21 @@
-### 请求说明 ###
+## 一、请求说明 ##
 
-1、POST请求头信息中必须声明 Content-Type:application/json;
+	1、POST请求头信息中必须声明 Content-Type:application/json;
+	
+	2、所有请求参数请按照 API 说明进行参数封装。
+	
+	3、将封装好参数的 API 请求通过 POST 的方式提交到服务器。
+	
+	4、币好网处理请求，并返回相应的 JSON 格式结果。
+	
+	5、请使用 https 请求。
 
-2、所有请求参数请按照 API 说明进行参数封装。
 
-3、将封装好参数的 API 请求通过 POST 或 GET 的方式提交到服务器。
+## 二、接口说明 ##
 
-4、币好网处理请求，并返回相应的 JSON 格式结果。
+### 2.1 市场行情  ### 
 
-5、请使用 https 请求。
-
-
-
-### POST https://www.bihao.pro/v1/ticker 市场行情  ###
+POST https://www.bihao.pro/v1/ticker  
 
 **请求参数：**
 
@@ -52,7 +55,10 @@
 6.sell: 卖一价
 7.vol: 成交量(最近的24小时)
 
-### POST https://www.bihao.pro/v1/depth 市场深度 ###
+### 2.2 市场深度 ###
+
+POST https://www.bihao.pro/v1/depth 
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -86,7 +92,10 @@
 1.asks - 委买单[价格, 委单量]，价格从高到低排序
 2.bids - 委卖单[价格, 委单量]，价格从高到低排序
 
-### POST https://www.bihao.pro/v1/orders 最近的市场交易  ###
+### 2.3 最近的市场交易  ###
+
+POST https://www.bihao.pro/v1/orders
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -128,7 +137,10 @@
 5. type:交易类型
 
 
-### POST  https://www.bihao.pro/v1/kline  K线 ###
+### 2.4 K线 ###
+
+POST  https://www.bihao.pro/v1/kline
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -174,7 +186,10 @@
 6. 1.5000：收
 
 
-### POST  https://www.bihao.pro/v1/userinfo 获取用户信息  ###
+### 2.5 获取用户信息  ###
+
+POST  https://www.bihao.pro/v1/userinfo
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -204,7 +219,10 @@
 3. nameauth:0 未实名 1 认证成功 2 认证失败
 
 
-### POST https://www.bihao.pro/v1/trade 下单  ###
+### 2.6 下单  ###
+
+POST https://www.bihao.pro/v1/trade
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -228,7 +246,9 @@
 1. code:返回码
 2. msg：返回信息
 
-### POST https://www.bihao.pro/api/v1/order_history  获取历史订单信息，只返回最近两天的信息   ###
+### 2.7  获取历史订单信息，只返回最近两天的信息   ###
+
+POST https://www.bihao.pro/api/v1/order_history
 
 **请求参数：**
 
@@ -307,7 +327,10 @@
 16. page_length: 每页显示条数
 
 
-### POST https://www.bihao.pro/v1/trade_history 获取用户的订单信息 (未成交)###
+### 2.8 获取用户的订单信息 (未成交)###
+
+POST https://www.bihao.pro/v1/trade_history
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -355,7 +378,10 @@
 13. digit_num：交易币种小数位
 14. currency_trade_mark：分区币种英文标识
 
-### POST  URL https://www.bihao.pro/V1/cancel_order 撤销订单 ###
+### 2.9 撤销订单 ###
+
+POST  URL https://www.bihao.pro/V1/cancel_order
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
@@ -377,7 +403,10 @@
 2. msg：返回信息
 
 
-### POST  https://www.bihao.pro/v1/order_info 获取用户的订单信息  (未成交)###
+### 2.10 获取用户的订单信息  (未成交)###
+
+POST  https://www.bihao.pro/v1/order_info
+
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
