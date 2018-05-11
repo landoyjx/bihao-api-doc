@@ -45,7 +45,7 @@ POST https://www.bihao.pro/v1/ticker
 |参数名|参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt cnt_cnt eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
 |sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
@@ -117,7 +117,7 @@ POST https://www.bihao.pro/v1/orders
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt cnt_cnt eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
 |sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
@@ -162,7 +162,7 @@ POST  https://www.bihao.pro/v1/kline
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt cnt_cnt eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
 |type| String|是 |用户请求K线时长1min,15min,30min,1hour,1day,2day,3day,1week,3week,1month,6month|
 |size| String|否 |用户一次请求条数|
 |since| String|否 |用户请求某个时间之后的数据|
@@ -246,7 +246,7 @@ POST https://www.bihao.pro/v1/trade
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt cnt_cnt eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
 |amount| String|是 |用户下单数量|
 |price| String|是 |用户下单价格|
 |type| String|是 |用户下单类型 sell卖出 buy买入|
@@ -273,7 +273,6 @@ POST https://www.bihao.pro/api/v1/order_history
 |参数名|参数类型|必填|描述|
 |-------------|-------------|-----|-----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |币 btc swtc moac cnt eth bhb|
 |status| Integer|是 |查询状态 0：未完成的订单 1：已经完成的订单 （最近两天的数据）|
 |current_page| Integer|是 |当前页数|
 |page_length|Integer|是 |每页数据条数，最多不超过200|
@@ -345,7 +344,7 @@ POST https://www.bihao.pro/api/v1/order_history
 16. page_length: 每页显示条数
 
 
-### 2.8 获取用户的订单信息 (未成交) ###
+### 2.8 获取历史交易信息 ###
 
 POST https://www.bihao.pro/v1/trade_history
 
@@ -355,6 +354,7 @@ POST https://www.bihao.pro/v1/trade_history
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
+|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
 
 **返回结果示例：**
 
