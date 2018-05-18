@@ -431,6 +431,7 @@ POST  https://www.bihao.pro/v1/order_info
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
+|order_id| String|是 |订单id|
 
 **返回结果示例：**
 
