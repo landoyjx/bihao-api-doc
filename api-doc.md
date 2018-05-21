@@ -72,7 +72,7 @@ POST https://www.bihao.pro/v1/ticker
 2. buy: 买一价
 3, high: 最高价
 4. last: 最新成交价
-5. low: 最低价
+5. low: 最低价(最近的24小时)
 6. sell: 卖一价
 7. vol: 成交量(最近的24小时)
 
