@@ -360,41 +360,58 @@ POST https://www.bihao.pro/v1/trade_history
 
 	{
 	    "data": {
-	        "id": "1",
-	        "currency_id": "1",
-	        "currency_trade_id": "5",
-	        "price": "10.00000000",
-	        "num": "2.00000000",
-	        "trade_num": "2.00000000",
-	        "fee": "0.10000000",
-	        "type": "buy",
-	        "add_time": "1524662244",
-	        "trade_time": "1524666228",
-	        "status": "2",
-	        "currency_mark": "BTC",
-	        "digit_num": "6",
-	        "currency_trade_mark": "CNY"
+	        "current_page": 1,
+	        "page_length": 8,
+	        "trades": [
+	            {
+	                "price": "1.00000000",
+	                "num": "1.00000000",
+	                "money": "1.00000000",
+	                "fee": "0.00100000",
+	                "type": "sell",
+	                "add_time": "1526884311",
+	                "status": "0",
+	                "b_mark": "SWT",
+	                "email": "",
+	                "phone": "13701331454",
+	                "type_name": "卖出",
+	                "trade_pair": "SWT/"
+	            },
+	            {
+	                "price": "1.00000000",
+	                "num": "10.00000000",
+	                "money": "10.00000000",
+	                "fee": "0.01000000",
+	                "type": "buy",
+	                "add_time": "1526639996",
+	                "status": "0",
+	                "b_mark": "BTC",
+	                "email": "",
+	                "phone": "13701331454",
+	                "type_name": "买入",
+	                "trade_pair": "BTC/"
+	            }
+	        ]
 	    },
-	    "code": "1001",
+	    "code": "10000",
 	    "msg": "请求成功"
 	}
 
 **返回值说明:**
 
-1. id:订单id
-2. currency_id：币种id
-3. currency_trade_id:分区币种id
-4. price：单价
-5. num：数量
-6. trade_num：成交数量
-7. fee：手续费
-8. type：类型buy买入，sell卖出
-9. add_time:下单时间
-10. trade_time:成交时间
-11. status：0代表挂单1代表部分成交2代表全部成交
-12. currency_mark：交易币种英文标识
-13. digit_num：交易币种小数位
-14. currency_trade_mark：分区币种英文标识
+1. price：单价
+2. num：数量
+3. money：总价
+4. fee：手续费
+5. type：类型buy买入，sell卖出
+6. add_time:下单时间
+7. status：0代表挂单1代表部分成交2代表全部成交
+8. email：用户邮箱
+9. phone：用户电话
+10. type_name：交易类型
+11. current_page: 当前页码
+12. trade_pair：交易市场
+13. page_length: 每页显示条数
 
 ### 2.9 撤销订单 ###
 
