@@ -147,7 +147,7 @@ POST https://www.bihao.pro/v1/orders
 **返回值说明:**
 
 1. id:交易id
-2. date：交易时间
+2. date：时间戳
 3. amount:交易数量
 4. price：价格
 5. type:交易类型
