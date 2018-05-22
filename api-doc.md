@@ -274,8 +274,8 @@ POST https://www.bihao.pro/api/v1/order_history
 |-------------|-------------|-----|-----|
 |api_key| String|是 |用户申请的apiKey|
 |status| Integer|是 |查询状态 0：未成交的订单 1：部分成交的订单  2：已成交订单（最近两天的数据）|
-|current_page| Integer|是 |当前页数|
-|page_length|Integer|是 |每页数据条数，最多不超过200|
+|current_page| Integer|否 |当前页数|
+|page_length|Integer|否 |每页数据条数，最多不超过200|
 |sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
