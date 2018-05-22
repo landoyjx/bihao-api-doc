@@ -354,8 +354,8 @@ POST https://www.bihao.pro/v1/trade_history
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
 |symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
-|current_page| Integer|是 |当前页数|
-|page_length|Integer|是 |每页数据条数，最多不超过200|
+|current_page| Integer|否 |当前页数|
+|page_length|Integer|否 |每页数据条数，最多不超过200|
 
 **返回结果示例：**
 
@@ -404,7 +404,7 @@ POST https://www.bihao.pro/v1/trade_history
 4. fee：手续费
 5. type：类型buy买入，sell卖出
 6. add_time:下单时间
-7. status：0代表挂单1代表部分成交2代表全部成交
+7. status：0代表已成交1代表部分成交
 8. b_mark:交易币种
 9. email：用户邮箱
 10. phone：用户电话
@@ -438,7 +438,7 @@ POST  URL https://www.bihao.pro/V1/cancel_order
 2. msg：返回信息
 
 
-### 2.10 获取用户的订单信息  (未成交) ###
+### 2.10 获取用户的订单信息  ###
 
 POST  https://www.bihao.pro/v1/order_info
 
@@ -480,10 +480,10 @@ POST  https://www.bihao.pro/v1/order_info
 3. num：数量
 2. currency_id：币种id
 3. currency_trade_id:分区币种id
-6. fee：手续费
+6. fee：手续费比例，0.01为0.01%
 7. type：类型buy买入，sell卖出
 8. add_time:成交时间
-9. status：0状态
+9. status：0挂单，1部分成交，2全部成交
 10. currency_mark：交易币种英文标识
 11. currency_trade_name:交易分区币种名,
 12. currency_trade_mark: 交易分区币种英文标识,
