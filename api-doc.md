@@ -273,7 +273,7 @@ POST https://www.bihao.pro/api/v1/order_history
 |参数名|参数类型|必填|描述|
 |-------------|-------------|-----|-----|
 |api_key| String|是 |用户申请的apiKey|
-|status| Integer|是 |查询状态 0：未完成的订单 1：已经完成的订单 （最近两天的数据）|
+|status| Integer|是 |查询状态 0：未成交的订单 1：部分成交的订单  2：已成交订单（最近两天的数据）|
 |current_page| Integer|是 |当前页数|
 |page_length|Integer|是 |每页数据条数，最多不超过200|
 |sign| String|是 |请求参数的签名|
@@ -336,12 +336,11 @@ POST https://www.bihao.pro/api/v1/order_history
 8. type：类型buy买入，sell卖出
 9. add_time:下单时间
 10. trade_time:成交时间
-11. status：0代表挂单1代表部分成交2代表全部成交
-12. currency_mark：交易币种英文标识
-13. digit_num：交易币种小数位
-14. currency_trade_mark：分区币种英文标识
-15. current_page: 当前页码
-16. page_length: 每页显示条数
+11. currency_mark：交易币种英文标识
+12. digit_num：交易币种小数位
+13. currency_trade_mark：分区币种英文标识
+14. current_page: 当前页码
+15. page_length: 每页显示条数
 
 
 ### 2.8 获取历史交易信息 ###
@@ -407,12 +406,12 @@ POST https://www.bihao.pro/v1/trade_history
 6. add_time:下单时间
 7. status：0代表挂单1代表部分成交2代表全部成交
 8. b_mark:交易币种
-8. email：用户邮箱
-9. phone：用户电话
-10. type_name：交易类型
-11. current_page: 当前页码
-12. trade_pair：交易市场
-13. page_length: 每页显示条数
+9. email：用户邮箱
+10. phone：用户电话
+11. type_name：交易类型
+12. current_page: 当前页码
+13. trade_pair：交易市场
+14. page_length: 每页显示条数
 
 ### 2.9 撤销订单 ###
 
