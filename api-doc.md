@@ -332,7 +332,7 @@ POST https://www.bihao.pro/api/v1/order_history
 4. price：单价
 5. num：数量
 6. trade_num：成交数量
-7. fee：手续费
+7. fee：手续费费率，如0.01为0.01%
 8. type：类型buy买入，sell卖出
 9. add_time:下单时间
 10. trade_time:成交时间
@@ -480,7 +480,7 @@ POST  https://www.bihao.pro/v1/order_info
 3. num：数量
 2. currency_id：币种id
 3. currency_trade_id:分区币种id
-6. fee：手续费比例，0.01为0.01%
+6. fee：手续费费率，0.01为0.01%
 7. type：类型buy买入，sell卖出
 8. add_time:成交时间
 9. status：0挂单，1部分成交，2全部成交
