@@ -483,7 +483,7 @@ POST  https://www.bihao.pro/v1/order_info
 6. fee：手续费费率，0.01为0.01%
 7. type：类型buy买入，sell卖出
 8. add_time:成交时间
-9. status：0挂单，1部分成交，2全部成交
+9. status：-1，撤销，0挂单，1部分成交，2全部成交
 10. currency_mark：交易币种英文标识
 11. currency_trade_name:交易分区币种名,
 12. currency_trade_mark: 交易分区币种英文标识,
