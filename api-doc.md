@@ -355,6 +355,8 @@ POST https://www.bihao.pro/v1/trade_history
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
 |symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
+|current_page| Integer|是 |当前页数|
+|page_length|Integer|是 |每页数据条数，最多不超过200|
 
 **返回结果示例：**
 
@@ -373,9 +375,8 @@ POST https://www.bihao.pro/v1/trade_history
 	                "status": "0",
 	                "b_mark": "SWT",
 	                "email": "",
-	                "phone": "13701331454",
-	                "type_name": "卖出",
-	                "trade_pair": "SWT/"
+	                "phone": "137********",
+	                "trade_pair": "SWT/CNT"
 	            },
 	            {
 	                "price": "1.00000000",
@@ -387,9 +388,8 @@ POST https://www.bihao.pro/v1/trade_history
 	                "status": "0",
 	                "b_mark": "BTC",
 	                "email": "",
-	                "phone": "13701331454",
-	                "type_name": "买入",
-	                "trade_pair": "BTC/"
+	                "phone": "137********",
+	                "trade_pair": "BTC/CNT"
 	            }
 	        ]
 	    },
@@ -406,6 +406,7 @@ POST https://www.bihao.pro/v1/trade_history
 5. type：类型buy买入，sell卖出
 6. add_time:下单时间
 7. status：0代表挂单1代表部分成交2代表全部成交
+8. b_mark:交易币种
 8. email：用户邮箱
 9. phone：用户电话
 10. type_name：交易类型
