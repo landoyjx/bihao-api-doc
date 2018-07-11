@@ -33,7 +33,6 @@
 		signature是签名，是将amount price type key等键名进行按字母顺序排序，将键值连接，再连接私钥，通过双层md5加密为得到的值。
 
 
-
 ## 二、接口说明 ##
 
 ### 2.1 市场行情  ### 
@@ -273,9 +272,9 @@ POST https://www.bihao.pro/api/v1/order_history
 |参数名|参数类型|必填|描述|
 |-------------|-------------|-----|-----|
 |api_key| String|是 |用户申请的apiKey|
-|status| Integer|是 |查询状态 0：未成交的订单 1：部分成交的订单  2：已成交订单（最近两天的数据）|
-|current_page| Integer|否 |当前页数|
-|page_length|Integer|否 |每页数据条数，最多不超过200|
+|status| Integer|是 |查询状态 0：未完成的订单 1：已经完成的订单 （最近两天的数据）|
+|current_page| Integer|是 |当前页数|
+|page_length|Integer|是 |每页数据条数，最多不超过200|
 |sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
@@ -332,15 +331,16 @@ POST https://www.bihao.pro/api/v1/order_history
 4. price：单价
 5. num：数量
 6. trade_num：成交数量
-7. fee：手续费费率，如0.01为0.01%
+7. fee：手续费
 8. type：类型buy买入，sell卖出
 9. add_time:下单时间
 10. trade_time:成交时间
-11. currency_mark：交易币种英文标识
-12. digit_num：交易币种小数位
-13. currency_trade_mark：分区币种英文标识
-14. current_page: 当前页码
-15. page_length: 每页显示条数
+11. status：0代表挂单1代表部分成交2代表全部成交
+12. currency_mark：交易币种英文标识
+13. digit_num：交易币种小数位
+14. currency_trade_mark：分区币种英文标识
+15. current_page: 当前页码
+16. page_length: 每页显示条数
 
 
 ### 2.8 获取历史交易信息 ###
@@ -354,8 +354,6 @@ POST https://www.bihao.pro/v1/trade_history
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
 |symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
-|current_page| Integer|否 |当前页数|
-|page_length|Integer|否 |每页数据条数，最多不超过200|
 
 **返回结果示例：**
 
@@ -374,8 +372,9 @@ POST https://www.bihao.pro/v1/trade_history
 	                "status": "0",
 	                "b_mark": "SWT",
 	                "email": "",
-	                "phone": "137********",
-	                "trade_pair": "SWT/CNT"
+	                "phone": "13701331454",
+	                "type_name": "卖出",
+	                "trade_pair": "SWT/"
 	            },
 	            {
 	                "price": "1.00000000",
@@ -387,8 +386,9 @@ POST https://www.bihao.pro/v1/trade_history
 	                "status": "0",
 	                "b_mark": "BTC",
 	                "email": "",
-	                "phone": "137********",
-	                "trade_pair": "BTC/CNT"
+	                "phone": "13701331454",
+	                "type_name": "买入",
+	                "trade_pair": "BTC/"
 	            }
 	        ]
 	    },
@@ -404,14 +404,13 @@ POST https://www.bihao.pro/v1/trade_history
 4. fee：手续费
 5. type：类型buy买入，sell卖出
 6. add_time:下单时间
-7. status：0代表已成交1代表部分成交
-8. b_mark:交易币种
-9. email：用户邮箱
-10. phone：用户电话
-11. type_name：交易类型
-12. current_page: 当前页码
-13. trade_pair：交易市场
-14. page_length: 每页显示条数
+7. status：0代表挂单1代表部分成交2代表全部成交
+8. email：用户邮箱
+9. phone：用户电话
+10. type_name：交易类型
+11. current_page: 当前页码
+12. trade_pair：交易市场
+13. page_length: 每页显示条数
 
 ### 2.9 撤销订单 ###
 
@@ -438,7 +437,7 @@ POST  URL https://www.bihao.pro/V1/cancel_order
 2. msg：返回信息
 
 
-### 2.10 获取用户的订单信息  ###
+### 2.10 获取用户的订单信息  (未成交) ###
 
 POST  https://www.bihao.pro/v1/order_info
 
@@ -480,10 +479,10 @@ POST  https://www.bihao.pro/v1/order_info
 3. num：数量
 2. currency_id：币种id
 3. currency_trade_id:分区币种id
-6. fee：手续费费率，0.01为0.01%
+6. fee：手续费
 7. type：类型buy买入，sell卖出
 8. add_time:成交时间
-9. status：-1，撤销，0挂单，1部分成交，2全部成交
+9. status：0状态
 10. currency_mark：交易币种英文标识
 11. currency_trade_name:交易分区币种名,
 12. currency_trade_mark: 交易分区币种英文标识,
