@@ -244,12 +244,10 @@ POST https://www.bihao.pro/v1/trade
 
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
-|api_key| String|是 |用户申请的apiKey|
 |symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
-|amount| String|是 |用户下单数量|
+|num| String|是 |用户下单数量|
 |price| String|是 |用户下单价格|
 |type| String|是 |用户下单类型 sell卖出 buy买入|
-|sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
 
