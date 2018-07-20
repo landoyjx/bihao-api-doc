@@ -24,27 +24,27 @@
 
 				api_key => 7dab89b3b0d46a13772d980ed4b63096
 
-				signature => e28f207fd85cebdd0a12259e8776d2b4
+				sign    => e28f207fd85cebdd0a12259e8776d2b4
 
 			);
 
 	        api_key 是申请到的公钥。
 				
-		signature是签名，是将amount price type key等键名进行按字母顺序排序，将键值连接，再连接私钥，通过双层md5加密为得到的值。
+		sign是签名，是将amount price type key等键名进行按字母顺序排序，将键值连接，再连接私钥，通过双层md5加密为得到的值。
 
 
 ## 二、接口说明 ##
 
 ### 2.1 市场行情  ### 
 
-POST https://www.bihao.pro/v1/ticker  
+POST https://www.bihao.pro/index.php/v1/ticker
 
 **请求参数：**
 
 |参数名|参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 BTC_USDT|
 |sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
@@ -61,7 +61,7 @@ POST https://www.bihao.pro/v1/ticker
             "vol": 0
         }
     },
-    "code": "1001",
+    "code": "10000",
     "msg": "请求成功"
 }
 
@@ -77,14 +77,14 @@ POST https://www.bihao.pro/v1/ticker
 
 ### 2.2 市场深度 ###
 
-POST https://www.bihao.pro/v1/depth 
+POST https://www.bihao.pro/index.php/v1/depth 
 
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt cnt_cnt eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 BTC_USDT|
 |sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
@@ -98,7 +98,7 @@ POST https://www.bihao.pro/v1/depth
 		   ["2.0000",0]
 		]
 	    },
-	    "code": "1001",
+	    "code": "10000",
 	    "msg": "请求成功"
 	}
 
@@ -109,14 +109,14 @@ POST https://www.bihao.pro/v1/depth
 
 ### 2.3 最近的市场交易  ###
 
-POST https://www.bihao.pro/v1/orders
+POST https://www.bihao.pro/index.php/v1/orders
 
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 BTC_USDT|
 |sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
@@ -139,7 +139,7 @@ POST https://www.bihao.pro/v1/orders
 	        }
 	        
 	    ],
-	    "code": "1001",
+	    "code": "10000",
 	    "msg": "请求成功"
 	}
 
@@ -154,14 +154,14 @@ POST https://www.bihao.pro/v1/orders
 
 ### 2.4 K线 ###
 
-POST  https://www.bihao.pro/v1/kline
+POST  https://www.bihao.pro/index.php/v1/kline
 
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 BTC_USDT|
 |type| String|是 |用户请求K线时长1min,15min,30min,1hour,1day,2day,3day,1week,3week,1month,6month|
 |size| String|否 |用户一次请求条数|
 |since| String|否 |用户请求某个时间之后的数据|
@@ -188,7 +188,7 @@ POST  https://www.bihao.pro/v1/kline
 	            "1.5000"
 	         ],
 		]
-	    "code": "1001",
+	    "code": "10000",
 	    "msg": "请求成功"
 	}
 
@@ -204,7 +204,7 @@ POST  https://www.bihao.pro/v1/kline
 
 ### 2.5 获取用户信息  ###
 
-POST  https://www.bihao.pro/v1/userinfo
+POST  https://www.bihao.pro/index.php/v1/userinfo
 
 **请求参数：**
 
@@ -225,7 +225,7 @@ POST  https://www.bihao.pro/v1/userinfo
 	       },
 	       "nameauth": "1"
 	   },
-	   "code": "1001",
+	   "code": "10000",
 	   "msg": "请求成功"
 	}
 
@@ -238,21 +238,23 @@ POST  https://www.bihao.pro/v1/userinfo
 
 ### 2.6 下单 ###
 
-POST https://www.bihao.pro/v1/trade
+POST https://www.bihao.pro/index.php/orders
 
 **请求参数：**
 
 | 参数名 | 参数类型|必填|描述|
 |-------------|-------------|-----|----|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 BTC_USDT|
 |num| String|是 |用户下单数量|
 |price| String|是 |用户下单价格|
 |type| String|是 |用户下单类型 sell卖出 buy买入|
+|api_key| String|是 |用户申请的apiKey|
+|sign| String|是 |请求参数的签名|
 
 **返回结果示例：**
 
 	{
-	    "code": "1001",
+	    "code": "10000",
 	    "msg": "下单成功"
 	}
 
@@ -263,7 +265,7 @@ POST https://www.bihao.pro/v1/trade
 
 ### 2.7  获取历史订单信息，只返回最近两天的信息   ###
 
-POST https://www.bihao.pro/api/v1/order_history
+POST https://www.bihao.pro/index.php/v1/order_history
 
 **请求参数：**
 
@@ -317,7 +319,7 @@ POST https://www.bihao.pro/api/v1/order_history
         "current_page": 1,
         "page_length": 8
     },
-    "code": "1001",
+    "code": "10000",
     "msg": "请求成功"
 }
 
@@ -343,7 +345,7 @@ POST https://www.bihao.pro/api/v1/order_history
 
 ### 2.8 获取历史交易信息 ###
 
-POST https://www.bihao.pro/v1/trade_history
+POST https://www.bihao.pro/index.php/v1/trade_history
 
 **请求参数：**
 
@@ -351,7 +353,7 @@ POST https://www.bihao.pro/v1/trade_history
 |-------------|-------------|-----|----|
 |api_key| String|是 |用户申请的apiKey|
 |sign| String|是 |请求参数的签名|
-|symbol| String|是 |交易对 btc_cnt swtc_cnt moac_cnt moac_eth eth_cnt bhb_cnt|
+|symbol| String|是 |交易对 BTC_USDT|
 
 **返回结果示例：**
 
@@ -412,7 +414,7 @@ POST https://www.bihao.pro/v1/trade_history
 
 ### 2.9 撤销订单 ###
 
-POST  URL https://www.bihao.pro/V1/cancel_order
+POST  URL https://www.bihao.pro/index.php/v1/cancel_order
 
 **请求参数：**
 
@@ -425,7 +427,7 @@ POST  URL https://www.bihao.pro/V1/cancel_order
 **返回结果示例：**
 
 	{
-	    "code": "1002",
+	    "code": "10020",
 	    "msg": "撤销成功"
 	}
 
@@ -437,7 +439,7 @@ POST  URL https://www.bihao.pro/V1/cancel_order
 
 ### 2.10 获取用户的订单信息  (未成交) ###
 
-POST  https://www.bihao.pro/v1/order_info
+POST  https://www.bihao.pro/index.php/v1/order_info
 
 **请求参数：**
 
@@ -466,7 +468,7 @@ POST  https://www.bihao.pro/v1/order_info
 	        "digit_num": "6",
 	        "currency_trade_mark": "CNY"
 	    },
-	    "code": "1001",
+	    "code": "10000",
 	    "msg": "请求成功"
 	}
 
@@ -515,5 +517,6 @@ POST  https://www.bihao.pro/v1/order_info
 |10019| 订单不存在|
 |10020| 撤销成功|
 |10021| 撤销失败|
+
 
 
