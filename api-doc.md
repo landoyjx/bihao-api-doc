@@ -289,7 +289,7 @@ POST  https://www.bihao.pro/index.php/v1/userinfo
 
 1. free:用户可用余额
 2. freezed：用户冻结余额
-3.currency：币种名称 
+3. currency：币种名称 
 4. nameauth:0 未实名 1 认证成功 2 认证失败
 
 
