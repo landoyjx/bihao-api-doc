@@ -216,18 +216,74 @@ POST  https://www.bihao.pro/index.php/v1/userinfo
 **返回结果示例：**
 
 	{
-	   "data": {
-	       "free": {
-	           "SWT": "1000062.0000"
-	       },
-	       "freezed": {
-	           "SWT": "8.0000"
-	       },
-	       "nameauth": "1"
-	   },
-	   "code": "10000",
-	   "msg": "请求成功"
-	}
+    "data": {
+        "balance": [
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "BTC"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "ETH"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "BNB"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "SWT"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "CNY"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "MOAC"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "USDT"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "BCH"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "BHB"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "ADA"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "ELF"
+            },
+            {
+                "free": 0,
+                "freezed": 0,
+                "currency": "STM"
+            }
+        ],
+        "nameauth": 0
+    },
+    "code": "10000",
+    "msg": "请求成功"
+}
 
 **返回值说明:**
 
