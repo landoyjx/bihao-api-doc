@@ -1,5 +1,6 @@
 ## API Guide
----
+
+
 - All requests are http request, and use **POST** method
 - Http request content type is **application/json**
 - All request will be verified by signature, with `accessKey` and `secretKey` provided for each account in bihao.pro
@@ -16,16 +17,23 @@
     `data` is response data, `code` indicates result, `msg` is result message.
 
 ## API Interfaces
----
+
+
 ### Ticker
+
 URL: /ticker
+
 Get latest market ticker
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
 |sign| String| Yes | Signature|
+
+
 *Response Example*:
 ```json
 {
@@ -44,6 +52,7 @@ Get latest market ticker
     "msg": "Success
 }
 ```
+
 *Parameter Description*:
 1. `date`: last time of the request
 2. `buy`: first buy price
@@ -53,15 +62,21 @@ Get latest market ticker
 6. `vol`: trade volumen in last 24 hours
 
 ### Depth
+
 URL: /depth
+
 Get market orderbook depth
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "data": {
@@ -81,20 +96,27 @@ Get market orderbook depth
     "msg": "Success"
 }
 ```
+
 *Parameter Description*:
 1. `asks`: sell order[price, amount] array, sort by price desc
 2. `bids`: buy order[price, amount] array, sort by price desc 
 
 ### Trade List
+
 URL: /trades
+
 Get recent trade list
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "data": [
@@ -117,7 +139,9 @@ Get recent trade list
       "msg": "SUCCESS"
     }
 ```
+
 *Parameter Description*:
+
 1. `id`: order id
 2. `date`:  order trade time
 3. `amount`: trade amount
@@ -125,9 +149,13 @@ Get recent trade list
 5. `type`: trade type, sell or buy
 
 ### KLine data
+
 URL: /kline
+
 Get Kline/candlestick bars for a symbol
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
@@ -136,7 +164,9 @@ Get Kline/candlestick bars for a symbol
 |size|String| No| Size of each request |
 |since|String| No| Request from which time, unix time|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "data": [
@@ -161,7 +191,9 @@ Get Kline/candlestick bars for a symbol
     "msg": "Success"
 }
 ```
+
 *Parameter Description*:
+
 1. `1525639499`: trade timestamp
 2. `10`: trade volume
 3. `2`: open price
@@ -170,14 +202,20 @@ Get Kline/candlestick bars for a symbol
 6. `1.5000`: closed price in last 24 hours
 
 ### User Info
+
 URL: /userinfo
+
 Get user information, include user balance
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "data": {
@@ -249,16 +287,22 @@ Get user information, include user balance
     "msg": "Success"
 }
 ```
+
 *Parameter Description*:
+
 1. `free`: user avilable balance
 2. `freezed`: user locked balance
 3. `currency`: user hold currency
 4. `nameauth`: user verification information, 0: unverified, 1: verified, 2: verified failed
 
 ### New Order
+
 URL: /orders
+
 User set new order in orderbook
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
@@ -267,7 +311,9 @@ User set new order in orderbook
 |price| String| Yes| Order price|
 |type| String|Yes| Order type, sell or buy|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "code": "10000",
@@ -276,9 +322,13 @@ User set new order in orderbook
 ```
 
 ### Order History
+
 URL: /order_history
+
 Get user history order information, limit latest two days
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
@@ -286,7 +336,9 @@ Get user history order information, limit latest two days
 |current_page| Integer| Yes| page offset|
 |page_length| Integer| Yes| limit size of each page, 200 at most|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "data": {
@@ -325,7 +377,9 @@ Get user history order information, limit latest two days
     "msg": "Success"
 }
 ```
+
 *Parameter Description*:
+
 1. `id`: order id
 2. `currency_id`: currency id
 3. `currency_trade_id`: partition currency id
@@ -341,15 +395,21 @@ Get user history order information, limit latest two days
 13. `digit_num`: digit for trade currency
 
 ### Trade History
+
 URL: /trade_history
+
 Get user trade history information
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "data": {
@@ -382,7 +442,9 @@ Get user trade history information
     "msg": "Success"
 }
 ```
+
 *Parameter Description*:
+
 1. `price`: order price
 2. `num`: order amount
 3. `fee`: order fee
@@ -392,15 +454,21 @@ Get user trade history information
 7. `trade_pair`: order trade pair, for example BTC_USDT
 
 ### Cancel Order
+
 URL: /cancel_order
+
 User cancel order
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |order_id| String| Yes| Order to be cancelled|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "code": "10020",
@@ -409,15 +477,21 @@ User cancel order
 ```
 
 ### Order Information
+
 URL: /order_info
+
 Get User pending order detail information
+
 *Request parameters*:
+
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |order_id| String| Yes| Order to be cancelled|
 |sign| String| Yes | Signature|
+
 *Response Example*:
+
 ```json
 {
     "data": {
@@ -437,6 +511,7 @@ Get User pending order detail information
     "msg": "Success"
 }
 ```
+
 *Parameter Description*:
 1. `id`: order id
 2. `price`: order price
@@ -451,6 +526,7 @@ Get User pending order detail information
 11. `digit_num`: order currency digital number
 
 ## Error Code
+
 | Code | Error Detail Information|
 |-------------|-------------|
 |10000| Success|
