@@ -4,9 +4,12 @@
 - All requests are http request, and use **POST** method
 - Http request content type is **application/json**
 - All request will be verified by signature, with `accessKey` and `secretKey` provided for each account in bihao.pro
-- Signature parameter `sign`, will be calculated by sort each key ,and then concat value, with concat secretKey last. Then do double MD5 digest
-- bihao.pro production environment api prefix is https://www.bihao.pro/v1/
-- All request data will be as follow format
+- Signature parameter `sign`, will be calculated by sort each key ,and then concat key and value, with concat secretKey last. Then do double MD5 digest. The algorithm is:
+   ```js
+   sign=MD5(MD5(key1+value1+key2+value2+...+secretKey))
+   ```
+- Bihao.pro production environment api prefix is https://www.bihao.pro/v1/
+- All response data will be as follow format
     ```js
     {
         "data": {},
@@ -14,7 +17,8 @@
         "msg": String
     }
     ```
-    `data` is response data, `code` indicates result, `msg` is result message.
+    `data` is response data, `code` indicates result status, `msg` is result message.
+- Response data is UTF-8 encoded
 
 ## API Interfaces
 
@@ -316,10 +320,19 @@ User set new order in orderbook
 
 ```json
 {
+    "data": {
+        "order_id": "123"
+    },
     "code": "10000",
     "msg": "Success"
 }
 ```
+
+*Parameter Description*:
+
+1. `order_id`: new created order id 
+
+
 
 ### Order History
 
