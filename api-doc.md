@@ -23,7 +23,7 @@
 ## API Interfaces
 
 
-### Ticker
+### 1. Ticker
 
 URL: /ticker
 
@@ -65,7 +65,7 @@ Get latest market ticker
 5. `low`: the lowest price in last 24 hours
 6. `vol`: trade volumen in last 24 hours
 
-### Depth
+### 2. Depth
 
 URL: /depth
 
@@ -94,7 +94,8 @@ Get market orderbook depth
            ["1.9000", "10.0"],
            ["1.8000", "20.0"],
            ["1.5000", "10.0"]
-        ]
+        ],
+        "current_price": "2.00"
     },
     "code": "10000",
     "msg": "Success"
@@ -104,108 +105,10 @@ Get market orderbook depth
 *Parameter Description*:
 1. `asks`: sell order[price, amount] array, sort by price desc
 2. `bids`: buy order[price, amount] array, sort by price desc 
+3. `current_price`: the latest market price
 
-### Trade List
 
-URL: /trades
-
-Get recent trade list
-
-*Request parameters*:
-
-|Param|Type|Required|Description|
-|-------------|-------------|-----|----|
-|api_key| String|Yes | User account's `accessKey`|
-|symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
-|sign| String| Yes | Signature|
-
-*Response Example*:
-
-```json
-{
-    "data": [
-     {
-           "id": "37",
-           "date": "1524669669",
-           "amount": "100.00000000",
-           "price": "10.00000000",
-           "type": "sell"
-     },
-     {
-           "id": "37",
-           "date": "1524669669",
-           "amount": "100.00000000",
-           "price": "10.00000000",
-           "type": "sell"
-      }
-      ],
-      "code": "10000",
-      "msg": "SUCCESS"
-    }
-```
-
-*Parameter Description*:
-
-1. `id`: order id
-2. `date`:  order trade time
-3. `amount`: trade amount
-4. `price`: trade price
-5. `type`: trade type, sell or buy
-
-### KLine data
-
-URL: /kline
-
-Get Kline/candlestick bars for a symbol
-
-*Request parameters*:
-
-|Param|Type|Required|Description|
-|-------------|-------------|-----|----|
-|api_key| String|Yes | User account's `accessKey`|
-|symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
-|type| String| Yes| KLine period, 1 min, 15 min, 30 min, 1 day, 2 day, 3 day, 1 week, 3 week, 1 month, 6 month|
-|size|String| No| Size of each request |
-|since|String| No| Request from which time, unix time|
-|sign| String| Yes | Signature|
-
-*Response Example*:
-
-```json
-{
-    "data": [
-       [
-           "1525639499",
-           "10",
-           "2",
-           "2.0000",
-           "1.0000",
-           "1.5000"
-       ],
-       [
-           "1525639499",
-           "20",
-           "2",
-           "2.0000",
-           "1.0000",
-           "1.5000"
-       ]
-    ],
-    "code": "10000",
-    "msg": "Success"
-}
-```
-
-*Parameter Description*:
-
-1. `1525639499`: trade timestamp
-2. `10`: trade volume
-3. `2`: open price
-4. `2.0000`: high price in last 24 hours
-5. `1.0000`: low price in last 24 hours
-6. `1.5000`: closed price in last 24 hours
-
-### User Info
+### 3. User Info
 
 URL: /userinfo
 
@@ -237,52 +140,7 @@ Get user information, include user balance
             {
                 "free": 0,
                 "freezed": 0,
-                "currency": "BNB"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "SWT"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "CNY"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "MOAC"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
                 "currency": "USDT"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "BCH"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "BHB"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "ADA"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "ELF"
-            },
-            {
-                "free": 0,
-                "freezed": 0,
-                "currency": "STM"
             }
         ],
         "nameauth": 0
@@ -299,7 +157,7 @@ Get user information, include user balance
 3. `currency`: user hold currency
 4. `nameauth`: user verification information, 0: unverified, 1: verified, 2: verified failed
 
-### New Order
+### 4. New Order
 
 URL: /orders
 
@@ -332,141 +190,7 @@ User set new order in orderbook
 
 1. `order_id`: new created order id 
 
-
-
-### Order History
-
-URL: /order_history
-
-Get user history order information, limit latest two days
-
-*Request parameters*:
-
-|Param|Type|Required|Description|
-|-------------|-------------|-----|----|
-|api_key| String|Yes | User account's `accessKey`|
-|status| Integer|Yes| Order status, 0: pending order, 1: full filled order|
-|current_page| Integer| Yes| page offset|
-|page_length| Integer| Yes| limit size of each page, 200 at most|
-|sign| String| Yes | Signature|
-
-*Response Example*:
-
-```json
-{
-    "data": {
-        "orders": [
-             {
-                "id": "134",
-                "price": "1.00000000",
-                "num": "243.99980000",
-                "trade_num": "243.00000000",
-                "fee": "0.10000000",
-                "type": "sell",
-                "add_time": "1524677232",
-                "trade_time": "1524678034",
-                "status": "1",
-                "trade_pair": "BTC/CNY",
-                "digit_num": "6"
-            },
-            {
-                "id": "134",
-                "price": "1.00000000",
-                "num": "243.99980000",
-                "trade_num": "243.00000000",
-                "fee": "0.10000000",
-                "type": "sell",
-                "add_time": "1524677232",
-                "trade_time": "1524678034",
-                "status": "1",
-                "trade_pair": "BTC/CNY",
-                "digit_num": "6"
-            }        
-        ],
-        "current_page": 1,
-        "page_length": 8
-    },
-    "code": "10000",
-    "msg": "Success"
-}
-```
-
-*Parameter Description*:
-
-1. `id`: order id
-2. `currency_id`: currency id
-3. `currency_trade_id`: partition currency id
-4. `price`: order price
-5. `num`: order amount
-6. `trade_num`: traded order amount
-7. `fee`: order free
-8. `type`: order type, sell or buy
-9. `add_time`: order created time
-10. `trade_time`: last order trade time
-11. `status`: order status, 0: pending, 1: partially filled, 2: full filled
-12. `trade_pair`: order trade symbol
-13. `digit_num`: digit for trade currency
-
-### Trade History
-
-URL: /trade_history
-
-Get user trade history information
-
-*Request parameters*:
-
-|Param|Type|Required|Description|
-|-------------|-------------|-----|----|
-|api_key| String|Yes | User account's `accessKey`|
-|symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
-|sign| String| Yes | Signature|
-
-*Response Example*:
-
-```json
-{
-    "data": {
-        "current_page": 1,
-        "page_length": 8,
-        "trades": [
-        {
-           "price": "1.00000000",
-           "num": "1.00000000",
-           "money": "1.00000000",
-           "fee": "0.00100000",
-           "type": "sell",
-           "add_time": "1526884311",
-           "status": "0",
-           "trade_pair": "SWT/USDT"
-       },
-       {
-           "price": "1.00000000",
-           "num": "10.00000000",
-           "money": "10.00000000",
-           "fee": "0.01000000",
-           "type": "buy",
-           "add_time": "1526639996",
-           "status": "0",
-           "trade_pair": "BTC/USDT"
-           }
-       ]
-    },
-    "code": "10000",
-    "msg": "Success"
-}
-```
-
-*Parameter Description*:
-
-1. `price`: order price
-2. `num`: order amount
-3. `fee`: order fee
-4. `type`: order type, sell or buy
-5. `add_time`: order created time
-6. `status`: order status, 0: pending, 1: partially filled, 2: full filled
-7. `trade_pair`: order trade pair, for example BTC_USDT
-
-### Cancel Order
+### 5. Cancel Order
 
 URL: /cancel_order
 
@@ -489,7 +213,7 @@ User cancel order
 }
 ```
 
-### Order Information
+### 6. Order Information
 
 URL: /order_info
 
@@ -537,6 +261,200 @@ Get User pending order detail information
 9. `status`: order status, 0: pending, 1: partially filled, 2: full filled
 10. `trade_pair`: order trade pair, for example BTC_USDT
 11. `digit_num`: order currency digital number
+
+
+### 7. Order History
+
+URL: /order_history
+
+Get user history order information, limit latest two days
+
+*Request parameters*:
+
+|Param|Type|Required|Description|
+|-------------|-------------|-----|----|
+|api_key| String|Yes | User account's `accessKey`|
+|status| Integer|Yes| Order status, 0: pending order, 1: partially filled order, 2: filled order|
+|current_page| Integer| Yes| page offset|
+|page_length| Integer| Yes| limit size of each page, 200 at most|
+|sign| String| Yes | Signature|
+
+*Response Example*:
+
+```json
+{
+    "data": {
+        "orders": [
+             {
+                "id": "134",
+                "price": "1.00000000",
+                "num": "243.99980000",
+                "trade_num": "243.00000000",
+                "fee": "0.10000000",
+                "type": "sell",
+                "add_time": "1524677232",
+                "trade_time": "1524678034",
+                "status": "1",
+                "trade_pair": "BTC/CNY",
+                "digit_num": "6"
+            },
+            {
+                "id": "135",
+                "price": "1.00000000",
+                "num": "243.99980000",
+                "trade_num": "243.00000000",
+                "fee": "0.10000000",
+                "type": "sell",
+                "add_time": "1524677232",
+                "trade_time": "1524678034",
+                "status": "1",
+                "trade_pair": "BTC/CNY",
+                "digit_num": "6"
+            }        
+        ],
+        "current_page": 1,
+        "page_length": 8
+    },
+    "code": "10000",
+    "msg": "Success"
+}
+```
+
+*Parameter Description*:
+
+1. `id`: order id
+2. `currency_id`: currency id
+3. `currency_trade_id`: partition currency id
+4. `price`: order price
+5. `num`: order amount
+6. `trade_num`: traded order amount
+7. `fee`: order free
+8. `type`: order type, sell or buy
+9. `add_time`: order created time
+10. `trade_time`: last order trade time
+11. `status`: order status, 0: pending, 1: partially filled, 2: full filled
+12. `trade_pair`: order trade symbol
+13. `digit_num`: digit for trade currency
+
+
+### 8. Trade History
+
+URL: /trade_history
+
+Get user trade history information
+
+*Request parameters*:
+
+|Param|Type|Required|Description|
+|-------------|-------------|-----|----|
+|api_key| String|Yes | User account's `accessKey`|
+|symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
+|since| Long | Yes | From which unix time as start time, UNIX TIME|
+|page_size| Interger | No | trade size of each page, default is 200|
+|sign| String| Yes | Signature|
+
+*Response Example*:
+
+```json
+{
+    "data": {
+        "trades": [
+        {
+           "trade_no": "t123456",
+           "order_id": "123",
+           "matched_id: "124",
+           "price": "1.00000000",
+           "num": "1.00000000",
+           "money": "1.00000000",
+           "fee": "0.00100000",
+           "type": "sell",
+           "add_time": "1526884311",
+           "trade_pair": "SWT/USDT"
+       },
+       {
+           "trade_no": "t123457",
+           "order_id": "125",
+           "matched_id: "126",
+           "price": "1.00000000",
+           "num": "10.00000000",
+           "money": "10.00000000",
+           "fee": "0.01000000",
+           "type": "buy",
+           "add_time": "1526639996",
+           "trade_pair": "BTC/USDT"
+           }
+       ]
+    },
+    "code": "10000",
+    "msg": "Success"
+}
+```
+
+*Parameter Description*:
+
+1. `trade_no`: trade no, unique
+2. `order_id`: maker order id, which one create the order to matched
+3. `matched_id`: matched order id
+4. `price`: order price
+5. `num`: order amount
+6. `fee`: order fee
+7. `type`: order type, sell or buy
+8. `add_time`: order created time
+9. `trade_pair`: order trade pair, for example BTC_USDT
+
+### 9. KLine data
+
+URL: /kline
+
+Get Kline/candlestick bars for a symbol
+
+*Request parameters*:
+
+|Param|Type|Required|Description|
+|-------------|-------------|-----|----|
+|api_key| String|Yes | User account's `accessKey`|
+|symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
+|type| String| Yes| KLine period, 1 min, 15 min, 30 min, 1 day, 2 day, 3 day, 1 week, 3 week, 1 month, 6 month|
+|size|String| No| Size of each request |
+|since|String| No| Request from which time, unix time|
+|sign| String| Yes | Signature|
+
+*Response Example*:
+
+```json
+{
+    "data": [
+       [
+           "1525639499",
+           "10",
+           "2",
+           "2.0000",
+           "1.0000",
+           "1.5000"
+       ],
+       [
+           "1525639499",
+           "20",
+           "2",
+           "2.0000",
+           "1.0000",
+           "1.5000"
+       ]
+    ],
+    "code": "10000",
+    "msg": "Success"
+}
+```
+
+*Parameter Description*:
+
+1. `1525639499`: trade timestamp
+2. `10`: trade volume
+3. `2.0000`: open price in last 24 hours
+4. `2.0000`: high price in last 24 hours
+5. `1.0000`: low price in last 24 hours
+6. `1.5000`: closed price in last 24 hours
+
 
 ## Error Code
 
