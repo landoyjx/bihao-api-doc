@@ -275,8 +275,8 @@ Get user history order information, limit latest two days
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
 |status| Integer|Yes| Order status, 0: pending order, 1: partially filled order, 2: filled order, -1: to be confirm, -2: cancelled|
-|current_page| Integer| Yes| page offset|
-|page_length| Integer| Yes| limit size of each page, 200 at most|
+|since| Long| Yes| From which to query order|
+|size| Integer| Yes| limit size of each page, 200 at most|
 |sign| String| Yes | Signature|
 
 *Response Example*:
@@ -311,9 +311,7 @@ Get user history order information, limit latest two days
                 "trade_pair": "BTC/CNY",
                 "digit_num": "6"
             }        
-        ],
-        "current_page": 1,
-        "page_length": 8
+        ]
     },
     "code": "10000",
     "msg": "Success"
@@ -350,7 +348,7 @@ Get user trade history information
 |api_key| String|Yes | User account's `accessKey`|
 |symbol| String|Yes | Trade Pair, for example BTC_USDT, currency is uppercase and concat by underline `_`|
 |since| Long | Yes | From which unix time as start time, UNIX TIME|
-|page_size| Interger | No | trade size of each page, default is 200|
+|size| Interger | No | trade size of each page, default is 200|
 |sign| String| Yes | Signature|
 
 *Response Example*:
@@ -362,7 +360,7 @@ Get user trade history information
         {
            "trade_no": "t123456",
            "order_id": "123",
-           "matched_id: "124",
+           "matched_id": "124",
            "price": "1.00000000",
            "num": "1.00000000",
            "money": "1.00000000",
@@ -374,7 +372,7 @@ Get user trade history information
        {
            "trade_no": "t123457",
            "order_id": "125",
-           "matched_id: "126",
+           "matched_id": "126",
            "price": "1.00000000",
            "num": "10.00000000",
            "money": "10.00000000",
