@@ -565,6 +565,19 @@ Get User pending order detail information
 |10020| cancel order success, TODO INVALID|
 |10021| cancel order failure, TODO INVALID|
 |10401| The type parameter can not be empty|
+|20000| Server error|
+|20002| Trading stops Trading|
+|20003| Not in the transaction time|
+|20004| The currency is locked|
+|20005| Price or quantity must be numeric|
+|20006| The currency has been down|
+|20007| The currency has been closed|
+|20008| The amount of purchase must be greater than 0|
+|20009| The quantity is less than the maximum quantity|
+|20010| Quantity is greater than minimum quantity|
+|20011| The transaction password is incorrect|
+|20012| Insufficient balance|
+
 
 
 
