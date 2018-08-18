@@ -564,6 +564,7 @@ Get User pending order detail information
 |10019| order id not exits|
 |10020| cancel order success, TODO INVALID|
 |10021| cancel order failure, TODO INVALID|
+|10401| The type parameter can not be empty|
 
 
 
