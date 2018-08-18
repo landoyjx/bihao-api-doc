@@ -224,7 +224,7 @@ Get User pending order detail information
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
-|order_id| String| Yes| Order to be cancelled|
+|order_id| String| Yes| Order to be query|
 |sign| String| Yes | Signature|
 
 *Response Example*:
@@ -258,7 +258,7 @@ Get User pending order detail information
 6. `type`: order type, sell or buy
 7. `add_time`: order created time
 8. `trade_time`: order last trade time
-9. `status`: order status, 0: pending, 1: partially filled, 2: full filled
+9. `status`: order status, 0: pending, 1: partially filled, 2: full filled, -1: cancelled
 10. `trade_pair`: order trade pair, for example BTC_USDT
 11. `digit_num`: order currency digital number
 
@@ -274,7 +274,7 @@ Get user history order information, limit latest two days
 |Param|Type|Required|Description|
 |-------------|-------------|-----|----|
 |api_key| String|Yes | User account's `accessKey`|
-|status| Integer|Yes| Order status, 0: pending order, 1: partially filled order, 2: filled order|
+|status| Integer|Yes| Order status, 0: pending order, 1: partially filled order, 2: filled order, -1: to be confirm, -2: cancelled|
 |current_page| Integer| Yes| page offset|
 |page_length| Integer| Yes| limit size of each page, 200 at most|
 |sign| String| Yes | Signature|
@@ -332,7 +332,7 @@ Get user history order information, limit latest two days
 8. `type`: order type, sell or buy
 9. `add_time`: order created time
 10. `trade_time`: last order trade time
-11. `status`: order status, 0: pending, 1: partially filled, 2: full filled
+11. `status`: order status, 0: pending order, 1: partially filled order, 2: filled order, -1: to be confirm, -2: cancelled
 12. `trade_pair`: order trade symbol
 13. `digit_num`: digit for trade currency
 
