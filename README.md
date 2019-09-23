@@ -11,7 +11,7 @@
 - Bihao.pro production environment api prefix is https://www.bihao.pro/
 - Signature require timestamp `time` to be sent to endpoint, the logic is as follow.
     ```js
-        if (time < (serverTime + 2) && (serverTime - time) <= 7) {
+        if (time < (serverTime + 30) && (serverTime - time) <= 300) {
           // process request
         } else {
           // reject request
